@@ -220,3 +220,25 @@ class Heroe {
     }
 }
 ```
+
+### Forma corta de definir propiedades en las clases
+
+Se puede crear un constructor en Dart de una manera mucho mas simple que la manera anterior.
+
+También se puede obviar el **this**
+
+```dart
+void main() {
+    final wolverine = new Heroe(nombre: 'Logan', poder: 'Regeneración');
+    print(wolverine)
+}
+
+class Heroe {
+    String nombre;
+    String poder;
+
+    Heroe({ this.nombre, this.poder });
+    
+    String toString() => 'nombre: $nombre - poder: $poder'; // sin this
+}
+```
