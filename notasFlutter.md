@@ -163,3 +163,60 @@ void main() {
     print(personas[2]); // Juan
 }
 ```
+
+### Funciones en Dart
+
+main es una función al igual que print()
+
+Void quiere decir que la función no regresa nada (regresa un null) por lo que no podemos almacenar en variables lo que salga de esa función.
+
+Cuando una función o una clase tiene en su constructor llaves { } quiere decir que son parámetros con nombre. Esto es util para que la clase o la función reciba los parámetros de forma ordenada y clara.
+
+En Dart también existen las funciones flecha
+
+```dart
+void main() {
+    String mensaje = saludar(texto: 'Hola,', nombre: 'Diego');
+
+    print(mensaje);
+}
+
+String saludar({String texto, String nombre}) {
+   // print('Hola');
+   return '$texto $nombre';
+}
+
+String saludar2({String texto, String nombre}) => '$texto $nombre';
+```
+
+### Clases en Dart
+
+En Dart todo es un objeto es por eso que debemos dominar el concepto de clases.
+
+El **new** en Dart es opcional, pero se acostumbra que cuando estamos creando una nueva instancia de una clase que va directamente a una variable se utilice **new** para que sea mas claro.
+
+Final es para decirle a Dart que esa variable jamas va a cambiar de su valor como tal, puedo cambiar las propiedades (nombre, poder), pero no voy a poder asignar a la variable un nuevo valor. Final es muy parecido a una constante pero la diferencia radica en la forma de la compilación, normalmente siempre trabajaremos con finals
+
+```dart
+void main() {
+    final wolverine = new Heroe(nombre: 'Logan', poder: 'Regeneración');
+   // print(wolverine);           // Instance of 'Heroe'
+   // print(wolverine.poder);     // Regeneración
+   // print(wolverine.nombre);    // Logan
+    print(wolverine);   // Logan - Regeneración
+}
+
+class Heroe {
+    String nombre;
+    String poder;
+
+    Heroe({String nombre = 'Sin Nombre', String poder}) {
+        this.nombre = nombre;
+        this.poder = poder;
+    }
+
+    String toString() {
+        return 'nombre: ${this.nombre} - poder: ${this.poder}';
+    }
+}
+```
